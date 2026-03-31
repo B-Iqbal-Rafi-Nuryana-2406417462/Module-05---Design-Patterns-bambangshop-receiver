@@ -90,3 +90,10 @@ This is the place for you to write reflections:
 2. Rust tidak mengizinkan mutasi static variable secara langsung karena Rust sangat menjaga memory safety dan thread safety. Static variable yang bisa diubah secara bebas dapat menyebabkan data race jika diakses oleh banyak thread. Oleh karena itu, Rust mengharuskan penggunaan mekanisme seperti lazy_static, RwLock, atau Mutex agar akses ke static variable tetap aman. Berbeda dengan Java yang mengandalkan runtime dan garbage collector, Rust mengontrol akses sejak compile-time untuk mencegah error concurrency.
 
 #### Reflection Subscriber-2
+1. Ya, saya melihat src/lib.rs untuk memahami struktur aplikasi. Dari sana saya belajar bahwa lib.rs berfungsi sebagai penghubung module seperti controller dan service serta mengatur struktur aplikasi secara keseluruhan. Struktur modular ini membantu memisahkan logic bisnis dan routing sehingga kode lebih rapi dan mudah dikembangkan.
+
+2. Observer Pattern mempermudah penambahan subscriber karena setiap Receiver hanya perlu melakukan subscribe ke Main App, lalu Main App otomatis mengirim notifikasi ke semua subscriber yang terdaftar tanpa perubahan besar pada kode.
+
+Jika menjalankan lebih dari satu Main App, sistem menjadi lebih kompleks karena setiap Main App memiliki subscriber sendiri. Observer Pattern tetap bisa digunakan, tetapi membutuhkan arsitektur tambahan seperti message broker atau sinkronisasi data antar publisher.
+
+3. Ya, saya menggunakan Postman untuk menguji endpoint subscribe, unsubscribe, receive, dan list. Postman membantu memastikan API berjalan dengan benar, memudahkan debugging, dan dapat digunakan sebagai dokumentasi API. Fitur ini juga berguna untuk group project karena mempermudah testing dan integrasi antar anggota tim.

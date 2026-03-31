@@ -1,6 +1,6 @@
 use std::sync::RwLock;
 
-use lazy_statiz::lazy_static;
+use lazy_static::lazy_static;
 
 use crate::model::notification::Notification;
 
@@ -12,5 +12,5 @@ lazy_static! {
 pub struct NotifictationRepository;
 
 impl NotifictationRepository{
-    
+
 }
